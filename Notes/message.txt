@@ -1,0 +1,115 @@
+-- create table teacher
+CREATE TABLE teachers (
+    id int NOT NULL PRIMARY KEY ,
+    first_name varchar(25) NOT NULL,
+    last_name varchar(50),
+    school varchar(50) NOT NULL,
+    hire_date date,
+    salary numeric
+    );
+-- insert datanya
+INSERT INTO teachers (id,first_name, last_name, school, hire_date, salary)
+    VALUES (1,'Janet', 'Smith', 'MIT', '2011-10-30', 36200),
+           (2,'Lee', 'Reynolds', 'MIT', '1993-05-22', 65000),
+           (3,'Samuel', 'Cole', 'Cambridge University', '2005-08-01', 43500),
+           (4,'Samantha', 'Bush', 'Cambridge University', '2011-10-30', 36200),
+           (5,'Betty', 'Diaz', 'Cambridge University', '2005-08-30', 43500),
+           (6,'Kathleen', 'Roush', 'MIT', '2010-10-22', 38500),
+           (7,'James', 'Diaz', 'Harvard University', '2003-07-18', 61000),
+           (8,'Zack', 'Smith', 'Harvard University', '2000-12-29', 55500),
+           (9,'Luis', 'Gonzales', 'Standford University', '2002-12-01', 50000),
+           (10,'Frank', 'Abbers', 'Standford University', '1999-01-30', 66000);
+INSERT INTO teachers (id, first_name, last_name, school, hire_date, salary)
+    VALUES (11, 'Samuel', 'Abbers', 'Standford University', '2006-01-30', 32000),
+           (12,'Jessica', 'Abbers', 'Standford University', '2005-01-30', 33000),
+           (13,'Tom', 'Massi', 'Harvard University', '1999-09-09', 39500),
+           (14,'Esteban', 'Brown', 'MIT', '2007-01-30', 36000),
+           (15,'Carlos', 'Alonso', 'Standford University', '2001-01-30', 44000);
+		   
+-- liat data
+SELECT *
+FROM teachers;
+
+-- Menampilkan kolom first_name, school, salary
+SELECT first_name, school, salary
+FROM teachers;
+
+-- Urutkan gaji dari yang terkecil
+SELECT first_name, school, salary
+FROM teachers
+ORDER BY salary;
+
+-- Urutkan gaji dari yang terbesar
+SELECT first_name, school, salary
+FROM teachers
+ORDER BY salary DESC;
+
+-- Urutkan last_name dari Z-A dan School dari A-Z
+SELECT *
+FROM teachers
+ORDER BY last_name DESC, school ASC;
+
+-- Carilah dosen yang school-nya di Harvard dengan gaji di atas 40000
+SELECT *
+FROM teachers
+WHERE school = 'Harvard University' AND salary > 40000;
+
+-- Cari dosen yang school nya mengandung kata 'va'
+SELECT *
+FROM teachers
+WHERE school LIKE '%va%';
+
+SELECT *
+FROM teachers
+WHERE school ILIKE 'harvard%';
+
+SELECT * 
+FROM teachers 
+WHERE school ILIKE '%university';
+
+-- Cari dosen yang nama belakangnya abbers atau smith
+SELECT *
+FROM teachers
+WHERE last_name = 'Abbers' OR last_name = 'Smith';
+
+SELECT *
+FROM teachers
+WHERE last_name IN ('Abbers', 'Smith');
+
+-- cari dosen yang gajinya diantara 20000 sampai 50000 lalu urutkan dari yang paling besar
+
+SELECT *
+FROM teachers
+WHERE salary BETWEEN 20000 AND 50000
+ORDER BY salary DESC;
+
+-- cari dosen yang di hire dari tanggal 1999-09-09 sampai 2002-12-01
+SELECT * 
+FROM teachers 
+WHERE hire_date BETWEEN '1999-09-09' AND '2002-12-01';
+
+-- cari berapa unique value di kolom school
+SELECT DISTINCT school
+FROM teachers;
+
+-- cari berapa jumlah unique value di kolom school
+SELECT COUNT(DISTINCT school)
+FROM teachers;
+
+-- Aggregate Function -> sum, count, max, dll
+-- Group by -> mengelompokkan data sehingga bisa di agregat
+
+-- cari total gaji dari masing-masing universitas
+SELECT school, SUM(salary) AS total_salary
+FROM teachers
+GROUP BY school;
+
+-- Melihat berapa banyak data di MIT
+SELECT COUNT(school) AS total_data_MIT
+FROM teachers
+WHERE school = 'MIT';
+
+-- Melihat berapa banyak data di masing-masing universitas
+SELECT school, COUNT(school) AS total_data
+FROM teachers
+GROUP BY school;
