@@ -1,0 +1,29 @@
+
+
+Tujuan utama Bisnis: memaksimalkan profit (revenue - costs)
+memaksimalkan revenue atau mengurangi beban (costs)
+
+Kategori expenses (beban) : - bersifat modal
+                            - bersifat operasional
+
+tujuan setiap departemen : memaksimalkan keuntungan, atau meminimalisir beban
+
+KPI : 
+    - sebuah metrik (alat ukur) untuk menghitung performa dari organisasi tersebut
+    - biasanya ada di setiap level
+
+Alat ukur : 
+    - ROI (return of investment)
+        * harus tahu projeksi keuntungan dari sebuah investasi
+        * (profit - investasi) / investasi = ROI
+        * terlalu sederhana, tidak memasukkan faktor risk, dan time value of money
+        * pakai net present value
+        * discount rate pakai formula weighted average cost of capital
+        * Net Present Value, semakin besar semakin bagus, selama output positif artinya profit
+        * segala sesuatu yang berkaitan dengan resiko bisa di akumulasi pada discount rate
+    
+    - GMV (Gross Merchandise Value)
+        * biasa dipakai untuk bisnis secara umum untuk melihat seberapa berkembang sebuah perusahaan selama periode tertentu
+        * rumus : GMV = harga produk * jumlah produk  terjual
+        * GMV jadi sumber masalah di banyak start-up company
+
